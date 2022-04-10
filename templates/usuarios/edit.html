@@ -1,0 +1,59 @@
+{% include 'headerAdmin.html' %}
+
+{% for usuario in usuarios %}
+<br>
+<form method="post" action="/update" enctype="multipart/form-data">
+
+    <div class="card">
+        <div class="card-header">
+            Editar usuario
+        </div>
+      <div class="card-body">
+        <h4 class="card-title">Editar usuario</h4>
+        <p class="card-text">
+
+            <input type="hidden" value="{{usuario[0]}}" name="txtID" id="txtID" >
+
+            <div class="form-group">
+              <label for="intDNI">DNI:</label>
+              <input id="intDNI" value="{{usuario[1]}}" type="text" name="intDNI" class="form-control" >
+            </div>
+
+            <div class="form-group">
+                <label for="txtNombre">Nombre:</label>
+                <input id="txtNombre" value="{{usuario[2]}}" type="text" name="txtNombre" class="form-control" >
+              </div>
+  
+              <div class="form-group">
+                  <label for="txtApellido">Apellido</label>
+                  <input id="txtApellido" value="{{usuario[3]}}" type="text" name="txtApellido" class="form-control" >
+              </div>
+              
+              <div class="form-group">
+                <label for="txtGenero">Género</label>
+                <input id="txtGenero" type="text" value="{{usuario[4]}}" name="txtGenero" class="form-control" >
+              </div>
+  
+              <div class="form-group">
+                  <label for="txtCorreo">Correo</label>
+                  <input id="txtCorreo" value="{{usuario[5]}}" type="text" name="txtCorreo"  class="form-control" >
+              </div>
+  
+              <div class="form-group">
+                  <label for="decimalMonto">Monto</label>
+                  <input id="decimalMonto" value="{{usuario[6]}}" type="text" name="decimalMonto"  class="form-control" >
+              </div>
+            <br>
+              <div class="form-group">
+                <input type="submit" class="btn btn-success" value="Actualizar">
+                <a href="{{url_for('indexAdmin')}}" class="btn btn-primary">Regresar</a>
+            </div>
+
+        </p>
+        </div>
+    </div>
+</form>
+    
+{% endfor %}
+
+{% include 'footer.html' %}  

@@ -1,0 +1,37 @@
+{% include 'headerAdmin.html' %}
+    
+    
+    <br/>
+
+    <table class="table table-light">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Género</th>
+                <th>Correo</th>
+                <th>Monto</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in  usuarios %}
+            <tr>
+                <td>{{usuario[0]}}</td>
+                <td>{{usuario[1]}}</td>
+                <td>{{usuario[2]}}</td>
+                <td>{{usuario[3]}}</td>
+                <td>{{usuario[4]}}</td>
+                <td>{{usuario[5]}}</td>
+                <td>{{usuario[6]}}</td>
+                <td>{{usuario[7]}}</td>
+                <td><a class="btn btn-warning" href="/edit/{{usuario[0]}}">Editar</a> | 
+                    <a class="btn btn-danger"  href="/destroy/{{usuario[0]}}">Eliminar</a>
+                    </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% include 'footer.html' %}  
